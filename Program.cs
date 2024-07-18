@@ -16,7 +16,7 @@ namespace HelloWorld
             Console.WriteLine("Item 1: {0}, Item 2: {1}, Item 3: {2}, Item 4{3}",
                                 tuple4.Item1, tuple4.Item2, tuple4.Item3, tuple4.Item4);
 
-            
+
             var voteForPresident = new VoteForPresident();
 
             voteForPresident.Vote4President(25);
@@ -38,13 +38,23 @@ namespace HelloWorld
             var fibonacci = new Fibonacci();
             fibonacci.callFibonacci(9);
 
-            var tip = new Tip();
-            Console.WriteLine($"Higher: {tip.Tips(9.63).high} \nMid: {tip.Tips(9.63).mid}\nLower: {tip.Tips(9.63).low}");
+            // Deconstruct class
+            Tip Earth = new Tip(9.63);
+            var (low, mid, high) = Earth;
+            Console.WriteLine($"Higher: {high} \nMid: {mid}\nLower: {low}");
             MyMethod("25", "Denilson", "30");
 
-            var LINQ = new Test();
-
             List<int> ts = [1, 2, 4, 5, 80, 0, -1, 5, -2];
+            string? word = null;
+            word ??= "Null word!";
+            Console.WriteLine(word);
+
+            // Patterns
+            int e = 5;
+            if (e is int a)
+            {
+                Console.WriteLine(a);
+            }
 
             var lista = Test.PositiveNumbers(ts);
             foreach (var item in lista)
@@ -63,7 +73,7 @@ namespace HelloWorld
 
             Console.Write("\n");
             Console.WriteLine(auto.ToString());
-            
+
             return 0;
         }
     }

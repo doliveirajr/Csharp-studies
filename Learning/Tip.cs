@@ -1,11 +1,19 @@
 public class Tip
 {
-    public (double low, double mid, double high) Tips(double time)
+    public double Lower { get; set; }
+    public double Mid { get; set; }
+    public double High { get; set; }
+    public double lower, middle, higher;
+    public Tip(double tip)
     {
-        double lower = time * 0.95;
-        double middle = time * 0.975;
-        double higher = time * 1;
-
-        return (lower, middle, higher);
+        Lower = tip * 0.95;
+        Mid = tip * 0.975;
+        High = tip * 1;
+    }
+    public void Deconstruct(out double low, out double mid, out double high)
+    {
+        low = Lower;
+        mid = Mid;
+        high = High;
     }
 }
