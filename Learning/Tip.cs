@@ -1,14 +1,17 @@
-public class Tip(double tip)
+namespace HelloWorld.Learning
 {
-    public double Lower { get; set; } = tip * 0.95;
-    public double Mid { get; set; } = tip * 0.975;
-    public double High { get; set; } = tip * 1;
-    public double lower, middle, higher;
-
-    public void Deconstruct(out double low, out double mid, out double high)
+    public class Tip(double tip)
     {
-        low = Lower;
-        mid = Mid;
-        high = High;
+        public double Lower { get; set; } = tip * 0.95;
+        public double Mid { get; set; } = tip * 0.975;
+        public double High { get; set; } = tip * 1;
+        public double lower, middle, higher;
+
+        public void Deconstruct(out double low, out double mid, out double high)
+        {
+            low = Lower;
+            mid = Mid;
+            high = High;
+        }
     }
 }

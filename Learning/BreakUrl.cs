@@ -2,7 +2,7 @@ namespace HelloWorld.Learning
 {
     public class BreakUrl
     {
-        public string Break(string url)
+        public static string Break(string url)
         {
             string www = "www.";
             int count = 0;

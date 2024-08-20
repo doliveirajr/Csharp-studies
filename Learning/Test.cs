@@ -1,22 +1,25 @@
 using System.Collections;
 
-public class Test
+namespace HelloWorld.Learning
 {
-    public static IEnumerable PositiveNumbers(List<int> ints)
+    public class Test
     {
-        IEnumerable<int> ints1 =
-        from i in ints
-        where i > 0
-        select i;
+        public static IEnumerable PositiveNumbers(List<int> ints)
+        {
+            IEnumerable<int> ints1 =
+            from i in ints
+            where i > 0
+            select i;
 
-        return ints1;
-    }
+            return ints1;
+        }
 
-    public static IEnumerable NegativeNumbers(List<int> ints)
-    {
-        IEnumerable<int> ints1 =
-        from i in ints where i < 0 select i;
+        public static IEnumerable NegativeNumbers(List<int> ints)
+        {
+            IEnumerable<int> ints1 =
+            from i in ints where i < 0 select i;
 
-        return ints1;
+            return ints1;
+        }
     }
 }

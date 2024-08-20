@@ -1,4 +1,4 @@
-namespace Testing
+namespace HelloWorld.Learning
 {
     public class New(string name_)
     {

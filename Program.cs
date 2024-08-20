@@ -11,7 +11,7 @@ namespace HelloWorld
         }
         static int Main(string[] args)
         {
-            var cheking = new Bank.CheckingAcct("John", "Doe", 2500.0m);
+            var cheking = new Learning.CheckingAcct("John", "Doe", 2500.0m);
             Console.WriteLine(cheking.Balance);
 
             var tuple4 = Tuple.Create(10, 25, 30, 40);
@@ -21,10 +21,10 @@ namespace HelloWorld
 
             var voteForPresident = new VoteForPresident();
 
-            voteForPresident.Vote4President(25);
+            VoteForPresident.Vote4President(25);
 
             var breakUrl = new Learning.BreakUrl();
-            string b = breakUrl.Break("www.batata.com");
+            string b = BreakUrl.Break("www.batata.com");
             Console.WriteLine(b);
 
             var batman = new Learning.Movie("Batman", "PG-20", 75);
@@ -38,7 +38,7 @@ namespace HelloWorld
             test.StartTimer(0);
 
             var fibonacci = new Fibonacci();
-            fibonacci.callFibonacci(9);
+            fibonacci.CallFibonacci(9);
 
             // Deconstruct class
             Tip Earth = new(9.63);
@@ -71,14 +71,13 @@ namespace HelloWorld
                 Console.Write($"{item} ");
             }
 
-            var auto = new Testing.New(" ABBA ");
+            var auto = new Learning.New(" ABBA ");
 
             Console.Write("\n");
             Console.WriteLine(auto.ToString());
 
             List<ClassicCar> carList = [];
             Learning.CarPopulate.PopulateData(carList);
-            // populateData(carList);
 
             // How many cars are in the collection?
             Console.WriteLine("There are {0} cars in the collection!", carList.Count);
@@ -100,7 +99,10 @@ namespace HelloWorld
             }
 
             Console.WriteLine("The most valuable car is {0} {1} {2}, cost {3}",
-                                mostValCar.m_Make, mostValCar.m_Model, mostValCar.m_Year, mostValCar.m_Value);
+                                mostValCar?.m_Make,
+                                mostValCar?.m_Model,
+                                mostValCar?.m_Year,
+                                mostValCar?.m_Value);
 
             // What is the entire collection worth?
             int collectionWorth = 0;

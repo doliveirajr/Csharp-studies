@@ -1,4 +1,4 @@
-namespace Bank
+namespace HelloWorld.Learning
 {
     public class BankAccount
     {
