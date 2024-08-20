@@ -1,20 +1,23 @@
-public class BreakUrl
+namespace HelloWorld.Learning
 {
-    public string Break(string url)
+    public class BreakUrl
     {
-        string www = "www.";
-        int count = 0;
-        for (int i = 0; i < 4; i++)
+        public string Break(string url)
         {
-            if (url[i] == www[i])
+            string www = "www.";
+            int count = 0;
+            for (int i = 0; i < 4; i++)
             {
-                count++;
+                if (url[i] == www[i])
+                {
+                    count++;
+                }
             }
+            if (count == 4)
+            {
+                url = url.Remove(0, 4);
+            }
+            return url;
         }
-        if (count == 4)
-        {
-            url = url.Remove(0, 4);
-        }
-        return url;
     }
 }

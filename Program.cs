@@ -1,4 +1,6 @@
 ﻿
+using HelloWorld.Learning;
+
 namespace HelloWorld
 {
     class Program
@@ -21,30 +23,30 @@ namespace HelloWorld
 
             voteForPresident.Vote4President(25);
 
-            var breakUrl = new BreakUrl();
+            var breakUrl = new Learning.BreakUrl();
             string b = breakUrl.Break("www.batata.com");
             Console.WriteLine(b);
 
-            var batman = new Movie("Batman", "PG-20", 75);
-            var batman2 = new Movie("Batman", "PG-20", 76);
-            var batman3 = new Movie("Batman", "PG-20", 17);
+            var batman = new Learning.Movie("Batman", "PG-20", 75);
+            var batman2 = new Learning.Movie("Batman", "PG-20", 76);
+            var batman3 = new Learning.Movie("Batman", "PG-20", 17);
 
             Console.WriteLine(batman.ToString());
             Console.WriteLine(batman2.ToString());
             Console.WriteLine(batman3.ToString());
-            var test = new HelloWorld.Learning.WordsOfAffirmation();
+            var test = new Learning.WordsOfAffirmation();
             test.StartTimer(0);
 
             var fibonacci = new Fibonacci();
             fibonacci.callFibonacci(9);
 
             // Deconstruct class
-            Tip Earth = new Tip(9.63);
+            Tip Earth = new(9.63);
             var (low, mid, high) = Earth;
             Console.WriteLine($"Higher: {high} \nMid: {mid}\nLower: {low}");
             MyMethod("25", "Denilson", "30");
 
-            List<int> ts = [1, 2, 4, 5, 80, 0, -1, 5, -2];
+            List<int> ts = [1, 2, 4, -5, -8, 5, 80, 0, -1, 5, -2];
             string? word = null;
             word ??= "Null word!";
             Console.WriteLine(word);
@@ -74,6 +76,53 @@ namespace HelloWorld
             Console.Write("\n");
             Console.WriteLine(auto.ToString());
 
+            List<ClassicCar> carList = [];
+            Learning.CarPopulate.PopulateData(carList);
+            // populateData(carList);
+
+            // How many cars are in the collection?
+            Console.WriteLine("There are {0} cars in the collection!", carList.Count);
+
+            // How many Fords are there?
+            List<ClassicCar> fordList = carList.FindAll(CarPopulate.FindFords);
+            Console.WriteLine("There are {0} Fords in the entire collection!", fordList.Count);
+
+            // What is the most valuable car?
+            ClassicCar? mostValCar = null;
+            int highValue = 0;
+            foreach (ClassicCar c in carList)
+            {
+                if(c.m_Value > highValue)
+                {
+                    mostValCar = c;
+                    highValue = c.m_Value;
+                }
+            }
+
+            Console.WriteLine("The most valuable car is {0} {1} {2}, cost {3}",
+                                mostValCar.m_Make, mostValCar.m_Model, mostValCar.m_Year, mostValCar.m_Value);
+
+            // What is the entire collection worth?
+            int collectionWorth = 0;
+            foreach (ClassicCar c in carList)
+            {
+                collectionWorth += c.m_Value;
+            }
+
+            Console.WriteLine("The entire collection worth ${0}", collectionWorth);
+
+            // How many unique manufacturers are there?
+            Dictionary<string, bool> makes = [];
+            foreach (ClassicCar c in carList) {
+                try {
+                    makes.Add(c.m_Make, true);
+                }
+                catch (Exception) { }
+            };
+            Console.WriteLine("The collection contains {0} unique manufacturers.\n", makes.Keys.Count);
+
+            Console.WriteLine("\nHit Enter key to continue...");
+            Console.ReadLine();
             return 0;
         }
     }

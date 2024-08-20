@@ -2,7 +2,8 @@ namespace Bank
 {
     public class BankAccount
     {
-        string firstName_, lastName_;
+        private readonly string firstName_;
+        private readonly string lastName_;
         decimal balance_;
         public BankAccount(string fName, string lName, decimal balance = 0.0m)
         {
@@ -64,7 +65,7 @@ namespace Bank
 
         public void ApplyInterest()
         {
-            Balance = Balance * interestRate_;
+            Balance *= interestRate_;
         }
 
         public override bool Withdraw(decimal amount)

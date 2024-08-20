@@ -2,7 +2,13 @@ namespace HelloWorld.Learning
 {
     public class WordsOfAffirmation
     {
-        private readonly string[] words = ["You are doing great!", "Keep it up!", "Fantastic job!", "You rock it!", "Let's Go!", "Keep the fire!"];
+        private readonly string[] words = [ "You are doing great!",
+                                            "Keep it up!",
+                                            "Fantastic job!",
+                                            "You rock it!",
+                                            "Let's Go!",
+                                            "Keep the fire!",
+                                            "You are the best!"];
 
 
         public void StartTimer(int interval)
